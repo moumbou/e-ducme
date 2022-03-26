@@ -1,65 +1,31 @@
-import Link from 'next/link'
-import dbConnect from '../lib/dbConnect'
-import Pet from '../models/Pet'
+import Nav from '../components/Nav'
+import styles from '../css/HomePageStyle.module.css' // ici j'ai appelé le fichier css
+const Index = () => (
+  <div className={styles.hero}>
+  <img src="images/triangle-top.png" className={styles.triangle1}/>
+  <img src="images/triangle-left.png" className={styles.triangle2}/>
+  <img src="images/circle.png" className={styles.circle}/>
 
-const Index = ({ pets }) => (
-  <>
-    {/* Create a card for each pet */}
-    {pets.map((pet) => (
-      <div key={pet._id}>
-        <div className="card">
-          <img src={pet.image_url} />
-          <h5 className="pet-name">{pet.name}</h5>
-          <div className="main-content">
-            <p className="pet-name">{pet.name}</p>
-            <p className="owner">Owner: {pet.owner_name}</p>
+  <Nav target={'home'} />
+  <dev className={styles.row}> {/* et la j'ai appeler un objet ou une classe */}
+      <div className="col-1">
+          <img src="images/man.png" />
+          <img src="images/elements.png" className={styles.elements}/>
 
-            {/* Extra Pet Info: Likes and Dislikes */}
-            <div className="likes info">
-              <p className="label">Likes</p>
-              <ul>
-                {pet.likes.map((data, index) => (
-                  <li key={index}>{data} </li>
-                ))}
-              </ul>
-            </div>
-            <div className="dislikes info">
-              <p className="label">Dislikes</p>
-              <ul>
-                {pet.dislikes.map((data, index) => (
-                  <li key={index}>{data} </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="btn-container">
-              <Link href="/[id]/edit" as={`/${pet._id}/edit`}>
-                <button className="btn edit">Edit</button>
-              </Link>
-              <Link href="/[id]" as={`/${pet._id}`}>
-                <button className="btn view">View</button>
-              </Link>
-            </div>
-          </div>
-        </div>
       </div>
-    ))}
-  </>
+      <div className={styles.col_2}>
+          <h1>Pour Chaque <span>étudiant</span> , chaque enseigant <br /> des résultat réél</h1>
+          <p>Nous sommes une organisation à but non lucratif ayant pour mission de fournir 
+              un enseignement gratuit et de qualité, pour tout le monde, partout</p>
+              <div>
+                  <a className={styles.link_btn}><span></span>Espace Etudiant</a>
+                  <a className={styles.link_btn}><span></span>Espace Enseigant</a>
+              </div>
+      </div>
+  </dev>
+</div>
 )
 
 /* Retrieves pet(s) data from mongodb database */
-export async function getServerSideProps() {
-  await dbConnect()
-
-  /* find all the data in our database */
-  const result = await Pet.find({})
-  const pets = result.map((doc) => {
-    const pet = doc.toObject()
-    pet._id = pet._id.toString()
-    return pet
-  })
-
-  return { props: { pets: pets } }
-}
 
 export default Index
