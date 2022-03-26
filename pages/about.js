@@ -1,5 +1,6 @@
 import Nav from "../components/Nav";
 import styles from "../css/HomePageStyle.module.css";
+import Link from "next/link";
 
 function about() {
   return (
@@ -14,12 +15,16 @@ function about() {
         </p>
       </div>
       <div>
-        <button type="button">
-          <span></span>Espace Etudiant
-        </button>
-        <button type="button">
-          <span></span>Espace Enseigant
-        </button>
+        <Link href={"/"}>
+          <a className={styles.link_btn} type="button">
+            <span></span>Espace Etudiant
+          </a>
+        </Link>
+        <Link href={'/'}>
+          <a className={styles.link_btn} type="button">
+            <span></span>Espace Enseigant
+          </a>
+        </Link>
       </div>
     </div>
   );

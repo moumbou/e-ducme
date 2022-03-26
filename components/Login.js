@@ -3,12 +3,17 @@ import Link from "next/link";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 
-function Login() {
+function Login({ setPage }) {
+
+  const clickHandler = () => {
+    setPage('register')
+  }
+
   return (
     <div className={styles.login}>
       <h2 className="title">se connecter</h2>
       <small>
-        vous n'avez pas de compte ? <span className={styles.spanBtn}>s'enregistrer .</span>
+        vous n'avez pas de compte ? <span onClick={clickHandler} className={styles.spanBtn}>s'enregistrer .</span>
       </small>
 
       <div className={styles.inputContainer}>
