@@ -4,8 +4,11 @@
   --main-cl: linear-gradient(45deg,#a700ff,#4d19db);
   --purple-cl: #a700ff;
   --dark-purple-cl: #4d19db;
-  --seconday-cl: #97AFBA;
+  --secondary-cl: #97AFBA;
+  --primary-cl: #009FC6;
   --active-cl: #344A53;
+  --hover-cl: #637982;
+  --list-cl: #899FA9;
   --light-cl: #F2F2F2;
   --light-gray-cl: #C0C5C7;
 }
@@ -33,4 +36,8 @@ input, textarea, button {
 
 button {
   cursor: pointer;
+}
+
+img.profile-pic:hover {
+  border: 3px solid var(--hover-cl);
 }

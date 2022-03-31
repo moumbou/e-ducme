@@ -1,0 +1,12 @@
+.style {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--primary-cl);
+}
+
+.style [target="container"] {
+    flex: 1;
+    display: flex;
+}
