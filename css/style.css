@@ -6,6 +6,7 @@
   --dark-purple-cl: #4d19db;
   --secondary-cl: #97AFBA;
   --primary-cl: #009FC6;
+  --primary-50-cl: #4BA7C0;
   --active-cl: #344A53;
   --hover-cl: #637982;
   --list-cl: #899FA9;
@@ -29,6 +30,11 @@ a {
   text-decoration: none;
 }
 
+ul, li {
+  list-style: none;
+  text-decoration: none;
+}
+
 input, textarea, button {
   outline: none;
   border: none;
@@ -40,4 +46,24 @@ button {
 
 img.profile-pic:hover {
   border: 3px solid var(--hover-cl);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--light-gray-cl);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-cl);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--active-cl);
 }

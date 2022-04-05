@@ -9,7 +9,7 @@ function MainContainer({ children }) {
       <Header />
       <div target="container">
         <NavSide />
-        {children}
+        <div className={mainContainerStyle.contentContainer}>{children}</div>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@
     box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
     position: relative;
     z-index: 10;
+    height: 50px;
 }
 
 .style [target="left-side"] {
