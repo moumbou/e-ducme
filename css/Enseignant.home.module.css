@@ -1,168 +1,169 @@
 .firstSection {
-    display: flex;
-    max-height: fit-content;
-    height: max-content;
-    margin: 20px auto;
-    width: 70%;
-    color: var(--light-cl);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  max-height: fit-content;
+  height: max-content;
+  margin: 20px auto;
+  width: 70%;
+  color: var(--light-cl);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .firstSection [target="pic-container"] {
-    background-image: url('/site-img/women-typing.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    clip-path: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
-    height: 320px;
-    width: 640px;
+  background-image: url("/site-img/women-typing.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
+  shape-outside: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
+  height: 320px;
+  width: 640px;
 }
 
 .firstSection [target="text-container"] {
-    font-weight: bolder;
-    font-size: 1.3rem;
-    padding: 10px 10px 10px 0;
-    position: relative;
-    display: flex;
-    align-items: center;
+  font-weight: bolder;
+  font-size: 1.3rem;
+  padding: 10px 10px 10px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .firstSection [target="text-container"] button {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: var(--active-cl);
-    font-size: .8rem;
-    font-weight: 600;
-    color: var(--light-cl);
-    padding: 10px 20px;
-    border-radius: 5px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--active-cl);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--light-cl);
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
 .articles {
-    width: 100%;
-    padding: 0 20px;
-    position: relative;
+  width: 100%;
+  padding: 0 20px;
+  position: relative;
 }
 
 .articles [target="full-width"] {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 
 .iconCardsContainer {
-    position: absolute;
-    font-size: 32px;
-    top: 50%;
-    transform: translate(50%, -50%);
-    color: var(--active-cl);
-    opacity: .8;
-    cursor: pointer;
-    z-index: 10;
+  position: absolute;
+  font-size: 32px;
+  top: 50%;
+  transform: translate(50%, -50%);
+  color: var(--active-cl);
+  opacity: 0.8;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .iconCardsContainer[target="left"] {
-    left: 0;
-    transform: translate(-50%, -50%);
+  left: 0;
+  transform: translate(-50%, -50%);
 }
 
 .iconCardsContainer[target="right"] {
-    right: 0;
+  right: 0;
 }
 
 .iconCardsContainer:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .iconCardsContainer[display="false"] {
-    pointer-events: none;
-    opacity: 0;
+  pointer-events: none;
+  opacity: 0;
 }
 
 .articles h2 {
-    color: var(--light-cl);
-    font-weight: bolder;
-    margin-bottom: 10px;
+  color: var(--light-cl);
+  font-weight: bolder;
+  margin-bottom: 10px;
 }
 
 .articles h2 span {
-    position: relative;
+  position: relative;
 }
 
 .articles h2::first-letter {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .articles h2 span::after {
-    content: '';
-    height: 4px;
-    width: 100%;
-    background-color: var(--light-cl);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: translateY(50%);
+  content: "";
+  height: 4px;
+  width: 100%;
+  background-color: var(--light-cl);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(50%);
 }
 
 .articles [target="card"] {
-    display: flex;
-    max-width: 400px;
-    min-width: 400px;
-    gap: 5px;
-    background-color: var(--secondary-cl);
-    color: var(--light-cl);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-    border-radius: 3px;
-    max-height: 150px;
+  display: flex;
+  max-width: 400px;
+  min-width: 400px;
+  gap: 5px;
+  background-color: var(--secondary-cl);
+  color: var(--light-cl);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  max-height: 150px;
 }
 
 .articles [target="card"] img {
-    min-height: 150px;
-    max-width: 150px;
-    border-radius: 3px 0 0 3px;
+  min-height: 150px;
+  max-width: 150px;
+  border-radius: 3px 0 0 3px;
 }
 
 .articles [target="card"] [target="content"] h4 {
-    color: var(--active-cl);
-    font-weight: bolder;
-    text-transform: uppercase;
+  color: var(--active-cl);
+  font-weight: bolder;
+  text-transform: uppercase;
 }
 
 .articles [target="card"] [target="content"] p {
-    font-size: .8rem;
-    font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .articles [target="card"] [target="content"] {
-    padding: 5px 5px 5px 0;
-    position: relative;
+  padding: 5px 5px 5px 0;
+  position: relative;
 }
 
 .articles [target="card"] [target="content"] a {
-    color: var(--active-cl);
-    font-weight: bolder;
-    font-size: .8rem;
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+  color: var(--active-cl);
+  font-weight: bolder;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 }
 
 .articles [target="card"] [target="content"] a:hover {
-    color: var(--light-cl);
+  color: var(--light-cl);
 }
 
 .cardsContainer {
-    overflow: hidden;
-    height: fit-content;
-    width: 100%;
-    padding: 10px 0;
+  overflow: hidden;
+  height: fit-content;
+  width: 100%;
+  padding: 10px 0;
 }
 
 .cardsContainer [target="slide"] {
-    display: flex;
-    gap: 20px;
-    width: fit-content;
-    position: relative;
-    transform: translateX(0);
-    transition: transform .5s ease-in-out;
+  display: flex;
+  gap: 20px;
+  width: fit-content;
+  position: relative;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
 }

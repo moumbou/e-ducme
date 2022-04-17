@@ -1,0 +1,87 @@
+.container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.container::before {
+  content: "";
+  background-image: url("../public/site-img/meeting-pic.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  background-color: var(--secondary-cl);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  color: var(--light-cl);
+}
+
+.content svg {
+  font-size: 32px;
+  margin: 0 auto 10px;
+  color: var(--primary-cl);
+}
+
+.content h3 {
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+
+.content h3::first-letter {
+  text-transform: capitalize;
+}
+
+.content span {
+  font-weight: bolder;
+  font-size: 0.8rem;
+}
+
+.content span::first-letter {
+  text-transform: capitalize;
+}
+
+.content input {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  font-weight: bolder;
+  color: var(--light-cl);
+}
+
+.content button {
+  width: max-content;
+  padding: 10px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  background-color: var(--active-cl);
+  color: var(--light-cl);
+  align-self: flex-end;
+}
+
+.content button:hover {
+  background-color: var(--light-cl);
+  color: var(--active-cl);
+}

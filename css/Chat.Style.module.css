@@ -95,6 +95,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 5px;
+    position: relative;
 }
 
 .container [target="chat-side"] [target="header"] [target="header-title"] {
@@ -181,4 +182,33 @@
 
 .container [target="chat-side"] [target="messages-cotnainer"] p::first-letter { 
     margin-left: 10px;
+}
+
+.container [target="inputs-container"] {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--secondary-cl);
+    padding: 0 10px;
+}
+
+.container [target="inputs-container"] input {
+    background-color: rgba(0, 0, 0, .5);
+    padding: 5px;
+    border-radius: 3px;
+    flex: 1;
+    color: var(--light-cl);
+    font-weight: normal;
+    font-size: .9rem;
+}
+
+.container [target="inputs-container"] svg {
+    color: var(--active-cl);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.container [target="inputs-container"] svg:hover {
+    color: var(--light-cl);
 }

@@ -1,0 +1,126 @@
+.container {
+  flex: 1;
+  display: grid;
+  grid-template-rows: 50px calc(100% - 50px);
+  grid-template-columns: 1fr;
+}
+
+.searchSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  height: 100%;
+}
+
+.searchSection button {
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color: var(--active-cl);
+  color: var(--light-gray-cl);
+  font-weight: bolder;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.searchSection button svg {
+  font-size: 20px;
+}
+
+.searchSection button:hover {
+  background-color: var(--light-gray-cl);
+  color: var(--active-cl);
+  transition: all .5s ease-out;
+}
+
+.searchSection [data-target="input"] {
+  position: relative;
+  min-width: 40%;
+}
+
+.searchSection [data-target="input"] input {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--light-gray-cl);
+  font-size: 0.9rem;
+  font-weight: bolder;
+  border-radius: 3px;
+  padding: 5px 18px;
+  width: 100%;
+}
+
+.searchSection [data-target="input"] input::placeholder {
+  color: var(--secondary-cl);
+  text-transform: capitalize;
+}
+
+.searchSection [data-target="input"] svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  font-size: 20px;
+  color: var(--secondary-cl);
+  pointer-events: none;
+}
+
+.content {
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex: 1;
+  overflow: auto;
+}
+
+.content [data-target="card"] {
+  background-color: var(--secondary-cl);
+  min-width: 300px;
+  min-height: 100px;
+  max-width: fit-content;
+  display: flex;
+  gap: 10px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.content [data-target="card"] [data-target="picture"] {
+  height: 100%;
+  width: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../public/site-img/study-skills-assessments.jpg");
+}
+
+.content [data-target="card"] [data-target="info"] {
+  padding: 5px 10px 10px 0;
+  position: relative;
+  flex: 1;
+}
+
+.content [data-target="card"] [data-target="info"] h3 {
+  font-weight: bolder;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.content [data-target="card"] [data-target="info"] p {
+  font-size: 0.8rem;
+  font-weight: bolder;
+}
+
+.content [data-target="card"] [data-target="info"] svg {
+  color: var(--active-cl);
+  font-size: 22px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.content [data-target="card"] [data-target="info"] svg:hover {
+  color: var(--light-gray-cl);
+}
