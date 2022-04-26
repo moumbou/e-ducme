@@ -1,27 +1,31 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
 :root {
-  --main-cl: linear-gradient(45deg,#a700ff,#4d19db);
+  --main-cl: linear-gradient(45deg, #a700ff, #4d19db);
   --purple-cl: #a700ff;
   --dark-purple-cl: #4d19db;
-  --secondary-cl: #97AFBA;
-  --primary-cl: #009FC6;
-  --primary-50-cl: #4BA7C0;
-  --active-cl: #344A53;
+  --secondary-cl: #97afba;
+  --primary-cl: #009fc6;
+  --primary-50-cl: #4ba7c0;
+  --active-cl: #344a53;
   --hover-cl: #637982;
-  --list-cl: #899FA9;
-  --light-cl: #F2F2F2;
-  --light-gray-cl: #C0C5C7;
+  --list-cl: #899fa9;
+  --light-cl: #f2f2f2;
+  --light-gray-cl: #c0c5c7;
+  --warning-cl: #fd7e14;
+  --danger-cl: #dc3545;
+  --success-cl: #198754;
 }
 
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
 }
@@ -30,12 +34,15 @@ a {
   text-decoration: none;
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
   text-decoration: none;
 }
 
-input, textarea, button {
+input,
+textarea,
+button {
   outline: none;
   border: none;
 }

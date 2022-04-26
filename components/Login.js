@@ -1,35 +1,99 @@
 import styles from "../css/ConnexionPageStyle.module.css";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
-import { RiLockPasswordFill } from "react-icons/ri";
+import { RiLockPasswordFill, RiErrorWarningLine } from "react-icons/ri";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { pushMessage } from "../slices/messageSlice";
 
 function Login({ setPage }) {
+  const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   const clickHandler = () => {
-    setPage('register')
-  }
+    setPage("register");
+  };
+
+  const onSubmit = (data) => {
+    const config = {
+      method: "post",
+      url: `/api/signIn`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data,
+    };
+    axios(config)
+      .then(({ data }) => {
+        dispatch(
+          pushMessage({
+            err: data.err,
+            message: data.message,
+          })
+        );
+        console.log(data.user);
+        reset();
+      })
+      .catch(({ response }) => {
+        const data = response.data;
+        console.log(data.err);
+        dispatch(
+          pushMessage({
+            err: data.err,
+            message: data.message,
+          })
+        );
+      });
+  };
 
   return (
-    <div className={styles.login}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.login}>
       <h2 className="title">se connecter</h2>
       <small>
-        vous n'avez pas de compte ? <span onClick={clickHandler} className={styles.spanBtn}>s'enregistrer .</span>
+        vous n'avez pas de compte ?{" "}
+        <span onClick={clickHandler} className={styles.spanBtn}>
+          s'enregistrer .
+        </span>
       </small>
 
       <div className={styles.inputContainer}>
         <div className={styles.input}>
-          <input type="text" />
-          <label>
+          <input
+            type="text"
+            {...register("email", {
+              required: true,
+              pattern: /(.+)@(.+){2,}\.(.+){2,}/,
+            })}
+          />
+          <label data-valid={watch("email") ? "true" : ""}>
             <MdEmail />
             <span>email</span>
+            {errors.email ? <RiErrorWarningLine data-color="warning" /> : <></>}
           </label>
         </div>
 
         <div className={styles.input}>
-          <input type="password" />
-          <label>
+          <input
+            type="password"
+            {...register("password", {
+              required: true,
+            })}
+          />
+          <label data-valid={watch("password") ? "true" : ""}>
             <RiLockPasswordFill />
             <span>mot de passe</span>
+            {errors.password ? (
+              <RiErrorWarningLine data-color="warning" />
+            ) : (
+              <></>
+            )}
           </label>
         </div>
       </div>
@@ -41,7 +105,7 @@ function Login({ setPage }) {
         </Link>
       </small>
       <button type="submit">connexion</button>
-    </div>
+    </form>
   );
 }
 
