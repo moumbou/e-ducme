@@ -1,22 +1,38 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import ArticleListe from "../../components/enseignants/index/ArticleListe";
 import FirstSection from "../../components/enseignants/index/FirstSection";
 import MainContainer from "../../components/MainContainer";
-import style from "../../css/Enseignant.home.module.css";
 
 function index() {
+  const [articles, setArticles] = useState([]);
 
-  const test0 = [1,1,1,1,1,1,1,1,1]
-  const test1 = [1,1,1]
-  const test2 = [1,1]
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    axios
+      .get("/api/get-articles", {
+        headers: {
+          "x-access-token": token,
+        },
+      })
+      .then(({ data }) => {
+        setArticles(data.articles);
+      })
+      .catch((res) => {
+        console.log(res);
+      });
+  }, []);
 
   return (
     <MainContainer>
       <FirstSection />
 
-      <ArticleListe articleTitle={'techno'} articles={test0} />
-      <ArticleListe articleTitle={'info'} articles={test1} />
-      <ArticleListe articleTitle={'géo'} articles={test2} />
+      {articles.map((value) => {
+        if (!value.articles.length) return <></>;
+        return (
+          <ArticleListe articleTitle={value.type} articles={value.articles} />
+        );
+      })}
     </MainContainer>
   );
 }

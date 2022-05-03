@@ -1,5 +1,6 @@
 import React from 'react'
 import style from '../../../css/Enseignant.home.module.css'
+import Link from 'next/link'
 
 function FirstSection() {
   return (
@@ -12,7 +13,7 @@ function FirstSection() {
         quibusdam natus accusantium dolore blanditiis impedit vero, itaque
         dicta odit consequuntur id.
       </p>
-      <button>ajouter un article</button>
+      <Link href={'/ajouter-unarticle'}>ajouter un article</Link>
     </div>
   </div>
   )

@@ -6,9 +6,12 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { pushMessage } from "../slices/messageSlice";
+import { setUser } from "../slices/userSlice";
+import { useRouter } from "next/router";
 
 function Login({ setPage }) {
   const dispatch = useDispatch();
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -38,7 +41,13 @@ function Login({ setPage }) {
             message: data.message,
           })
         );
-        console.log(data.user);
+
+        const { user, token } = data;
+        if (user && token) {
+          localStorage.setItem("token", token);
+          dispatch(setUser(user));
+          if (user.role.includes("prof")) router.push("/espace-enseignant");
+        }
         reset();
       })
       .catch(({ response }) => {

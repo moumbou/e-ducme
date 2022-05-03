@@ -1,17 +1,16 @@
 import React from "react";
 
-function CardArticle() {
-  const lorem = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit
-    delectus consequatur commodi doloremque deleniti dolorum ipsa,
-    voluptatem nesciunt consectetur cumque, ad possimus illo
-    architecto rem mollitia quos accusantium vel omnis.`;
-
+function CardArticle({ titre, description, picture }) {
   return (
     <div target="card">
-      <img src="/site-img/research-img.jpg" alt="research-img" />
+      <img src={picture.substring(8, picture.length)} alt={titre} />
       <div target="content">
-        <h4>titre</h4>
-        <p>{lorem.length > 180 ? `${lorem.substring(0, 180)}...` : lorem}</p>
+        <h4>{titre}</h4>
+        <p>
+          {description.length > 180
+            ? `${description.substring(0, 180)}...`
+            : description}
+        </p>
         <a href="#">voir l'article</a>
       </div>
     </div>

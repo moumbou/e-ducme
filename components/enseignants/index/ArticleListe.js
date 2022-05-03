@@ -59,8 +59,15 @@ function ArticleListe({ articleTitle, articles }) {
             target="slide"
             style={{ transform: `translateX(-${slideRight}px)` }}
           >
-            {articles.map((value, i) => {
-              return <CardArticle key={i} />;
+            {articles.map((value) => {
+              return (
+                <CardArticle
+                  key={value._id}
+                  description={value.description}
+                  picture={value.picture}
+                  titre={value.titre}
+                />
+              );
             })}
           </div>
         </div>

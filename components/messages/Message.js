@@ -18,7 +18,7 @@ function Message({ message, err, id }) {
 
   //* MAKE THE MESSAGE DELETE IT SELF AFTER AN AMOUNT OF TIME
   useEffect(() => {
-    return setTimeout(() => {
+    setTimeout(() => {
       setHide((prev) => !prev);
       setTimeout(() => {
         dispatch(deleteMessage(id));

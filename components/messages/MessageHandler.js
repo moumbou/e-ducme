@@ -16,7 +16,6 @@ function MessageHandler() {
   return (
     <ul className={style.container}>
       {messages.map((value, i) => {
-        if (i === 0) return;
         return (
           <Message
             key={value.id}

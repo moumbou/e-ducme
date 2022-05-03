@@ -1,6 +1,7 @@
 import dbConnect from "../../lib/dbConnect";
 import User from "../../models/user";
 import bcrypt from "bcrypt";
+import { createToken } from "../../JWT/createToken";
 
 export default async function handler(req, res) {
   try {
@@ -29,10 +30,12 @@ export default async function handler(req, res) {
         .json({ err: true, message: `mot de passe ou email incorrect !` });
 
     //* CHECK IF THE USER ACCOUNT IS VALIDATE
-    if (user.validation)
+    if (user.validation) {
+      const token = createToken(user.id.toString());
       return res
         .status(200)
-        .json({ err: false, message: `connexion établie !`, user });
+        .json({ err: false, message: `connexion établie !`, user, token });
+    }
 
     //* RESPOND WITH ERROR MESSAGE IF NO VALIDATION FOUND
     return res.status(200).json({
