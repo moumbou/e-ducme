@@ -37,6 +37,14 @@ export default async function handler(req, res) {
         .json({ err: false, message: `connexion établie !`, user, token });
     }
 
+    //* IF USER IS ADMIN
+    if (user.role === "admin") {
+      const token = createToken(user.id.toString());
+      return res
+        .status(200)
+        .json({ err: false, message: `bienvenu admin !`, user, token});
+    }
+
     //* RESPOND WITH ERROR MESSAGE IF NO VALIDATION FOUND
     return res.status(200).json({
       err: true,
