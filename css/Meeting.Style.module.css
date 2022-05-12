@@ -81,6 +81,18 @@
   align-self: flex-end;
 }
 
+.content button[color="danger"] {
+  width: max-content;
+  padding: 10px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  background-color: var(--danger-cl);
+  color: var(--light-cl);
+  align-self: flex-end;
+}
+
 .content button:hover {
   background-color: var(--light-cl);
   color: var(--active-cl);
