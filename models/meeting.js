@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 const meetingSchema = new mongoose.Schema({
   nom: String,
   profId: mongoose.Types.ObjectId,
-  date: Number,
+  dateDebut: Number,
+  dateFin: Number,
+  classe: String,
 });
 
 module.exports =

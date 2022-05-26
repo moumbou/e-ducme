@@ -212,3 +212,11 @@
 .container [target="inputs-container"] svg:hover {
     color: var(--light-cl);
 }
+
+.container form button {
+    background-color: transparent;
+    height: 100%;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+}

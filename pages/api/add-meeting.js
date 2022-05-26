@@ -8,13 +8,17 @@ handler.use(verifyToken);
 
 handler.use(async (req, res) => {
   const user = req.user;
-  const meetingName = req.body.meetingName;
+  const { meetingName, debut, fin, classe } = req.body;
+
+  console.log(req.body);
 
   const id = mongoose.Types.ObjectId();
   const meeting = await Meeting.create({
     nom: `${meetingName}-${id.toString()}`,
     profId: user._id,
-    date: new Date(),
+    dateDebut: debut,
+    dateFin: fin,
+    classe: classe,
   });
 
   res.status(200).json({

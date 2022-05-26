@@ -17,6 +17,8 @@
     "next": "^12.1.5",
     "next-connect": "^0.12.2",
     "prop-types": "^15.8.1",
+    "pusher": "^5.1.0-beta",
+    "pusher-js": "^7.1.0-beta",
     "react": "^18.1.0",
     "react-avatar": "^3.7.0",
     "react-dom": "^18.1.0",
