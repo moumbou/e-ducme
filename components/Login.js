@@ -47,6 +47,7 @@ function Login({ setPage }) {
           localStorage.setItem("token", token);
           dispatch(setUser(user));
           if (user.role.includes("prof")) router.push("/espace-enseignant");
+          if (user.role.includes("etudiant")) router.push("/espace-etudiant");
           if (user.role.includes("admin")) router.push("/admin");
         }
         reset();

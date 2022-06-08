@@ -116,3 +116,30 @@
   background-color: var(--light-cl);
   color: var(--active-cl);
 }
+
+.content [data-target="meeting-list"] {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content [data-target="meeting-list"] li {
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color: var(--active-cl);
+  font-size: .7rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.content [data-target="meeting-list"] li:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.content[data-target="meetings"] {
+  max-height: 70%;
+  overflow: auto;
+}

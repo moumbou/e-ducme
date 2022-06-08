@@ -21,7 +21,9 @@ function NavSide() {
       <ul target="list-item">
         <li>
           <SideBarLink
-            href="/espace-enseignant/profile"
+            href={`/espace-${
+              user && user.role === "prof" ? "enseignant" : "etudiant"
+            }/profile`}
             acitveClassName={"active"}
           >
             <a target="profile">
@@ -40,7 +42,12 @@ function NavSide() {
         </li>
 
         <li>
-          <SideBarLink href="/espace-enseignant" acitveClassName={"active"}>
+          <SideBarLink
+            href={`/espace-${
+              user && user.role === "prof" ? "enseignant" : "etudiant"
+            }`}
+            acitveClassName={"active"}
+          >
             <a>
               <Icon fontSize={32} icon={"ant-design:home-filled"} />
             </a>
@@ -49,7 +56,9 @@ function NavSide() {
 
         <li>
           <SideBarLink
-            href="/espace-enseignant/chat"
+            href={`/espace-${
+              user && user.role === "prof" ? "enseignant" : "etudiant"
+            }/chat`}
             acitveClassName={"active"}
           >
             <a>
@@ -60,7 +69,9 @@ function NavSide() {
 
         <li>
           <SideBarLink
-            href="/espace-enseignant/meeting"
+            href={`/espace-${
+              user && user.role === "prof" ? "enseignant" : "etudiant"
+            }/meeting`}
             acitveClassName={"active"}
           >
             <a>
@@ -71,7 +82,9 @@ function NavSide() {
 
         <li>
           <SideBarLink
-            href="/espace-enseignant/courses"
+            href={`/espace-${
+              user && user.role === "prof" ? "enseignant" : "etudiant"
+            }/courses`}
             acitveClassName={"active"}
           >
             <a>
@@ -82,7 +95,9 @@ function NavSide() {
 
         <li>
           <SideBarLink
-            href="/espace-enseignant/etudiants"
+            href={`/espace-${
+              user && user.role === "prof" ? "enseignant" : "etudiant"
+            }/etudiants`}
             acitveClassName={"active"}
           >
             <a>
@@ -93,7 +108,9 @@ function NavSide() {
 
         <li>
           <SideBarLink
-            href="/espace-enseignant/deconnexion"
+            href={`/espace-${
+              user && user.role === "prof" ? "enseignant" : "etudiant"
+            }/deconnexion`}
             acitveClassName={"active"}
           >
             <a>

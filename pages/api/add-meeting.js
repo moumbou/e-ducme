@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import nextConnect from "next-connect";
 import verifyToken from "../../middleware/verifyToken";
 import Meeting from "../../models/meeting";
+import pusher from "../../pusher/config";
 
 const handler = nextConnect();
 handler.use(verifyToken);
@@ -21,6 +22,7 @@ handler.use(async (req, res) => {
     classe: classe,
   });
 
+  pusher.trigger("meetings", "meeting", JSON.stringify(meeting));
   res.status(200).json({
     err: false,
     message: `le meeting a etait créer avec succée !`,

@@ -101,7 +101,6 @@ function meeting() {
       )
       .then(({ data }) => {
         const { meeting } = data;
-        console.log(meeting);
         setMeeting(meeting);
       })
       .catch(console.log);

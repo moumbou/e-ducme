@@ -24,9 +24,6 @@ function SignUp({ setPage }) {
   const onSubmit = (obj) => {
     //? CHECK IF THE PASSWORD IS VALID
     if (!isValid) return;
-    const result = Object.assign(obj, {
-      role: "prof",
-    });
     //? SET A CONFIGURATION FOR AXIOS
     const config = {
       method: "post",
@@ -34,7 +31,7 @@ function SignUp({ setPage }) {
       headers: {
         "Content-Type": "application/json",
       },
-      data: result,
+      data: obj,
     };
 
     //? SEND A REQUEST AND WAIT FOR THE RESPONSE
@@ -162,6 +159,18 @@ function SignUp({ setPage }) {
               <></>
             )}
           </label>
+        </div>
+
+        <div className={styles.input}>
+          <select
+            {...register("role", {
+              required: true,
+            })}
+          >
+            <option value="prof">enseigant</option>
+            <option value="etudiant">etudiant</option>
+          </select>
+          <label data-valid="true">définissez votre role</label>
         </div>
       </div>
 

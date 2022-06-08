@@ -69,12 +69,17 @@
   position: relative;
 }
 
-.input input {
+.input input,
+.input select {
   width: 100%;
   border-radius: 5px;
   padding: 10px 15px;
   font-weight: bolder;
   font-size: 1rem;
+}
+
+.input select {
+  text-transform: uppercase;
 }
 
 .input label {
