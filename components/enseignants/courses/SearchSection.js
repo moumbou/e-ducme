@@ -8,10 +8,6 @@ function SearchSection({ style }) {
         <input type="text" placeholder="recherche" />
         <Icon icon="eva:search-outline" />
       </div>
-
-      <button type="button">
-        ajouter un cours <Icon icon="ant-design:file-add-filled" />
-      </button>
     </div>
   );
 }

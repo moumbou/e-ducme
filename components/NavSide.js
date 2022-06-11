@@ -92,32 +92,6 @@ function NavSide() {
             </a>
           </SideBarLink>
         </li>
-
-        <li>
-          <SideBarLink
-            href={`/espace-${
-              user && user.role === "prof" ? "enseignant" : "etudiant"
-            }/etudiants`}
-            acitveClassName={"active"}
-          >
-            <a>
-              <Icon fontSize={32} icon={"ph:student-fill"} />
-            </a>
-          </SideBarLink>
-        </li>
-
-        <li>
-          <SideBarLink
-            href={`/espace-${
-              user && user.role === "prof" ? "enseignant" : "etudiant"
-            }/deconnexion`}
-            acitveClassName={"active"}
-          >
-            <a>
-              <Icon fontSize={32} icon={"ant-design:logout-outlined"} />
-            </a>
-          </SideBarLink>
-        </li>
       </ul>
     </div>
   );

@@ -7,7 +7,6 @@ import Message from "../../components/enseignants/chat/Message";
 import { Icon } from "@iconify/react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import AddChannel from "../../components/AddChannel";
 import { useSelector } from "react-redux";
 import { getChannel } from "../../slices/channelSlice";
 import pusherJs from "pusher-js";
@@ -15,7 +14,6 @@ import pusherJs from "pusher-js";
 function chat() {
   const { register, handleSubmit, reset } = useForm();
   const channelInfo = useSelector(getChannel);
-  const [display, setDisplay] = useState(false);
   const [messages, setMessages] = useState([]);
 
   const submit = (data) => {
@@ -86,10 +84,9 @@ function chat() {
 
   return (
     <>
-      {display ? <AddChannel setDisplay={setDisplay} /> : <></>}
       <MainContainer>
         <div className={Style.container}>
-          <LeftSide setDisplay={setDisplay} />
+          <LeftSide hideButton={true} />
           <div target="chat-side">
             <div target="header">
               <h3 target="header-title">

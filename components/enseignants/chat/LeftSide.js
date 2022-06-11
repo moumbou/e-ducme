@@ -4,7 +4,7 @@ import ButtonChannel from "./ButtonChannel";
 import pusherJs from "pusher-js";
 import axios from "axios";
 
-function LeftSide({ setDisplay }) {
+function LeftSide({ setDisplay, hideButton }) {
   const [active, setActive] = useState();
   const [channels, setChannels] = useState([]);
   useEffect(() => {
@@ -28,9 +28,13 @@ function LeftSide({ setDisplay }) {
     <div target="channel-side">
       <h3 target="title">groupe de chat</h3>
 
-      <button target="add-button" onClick={() => setDisplay(true)}>
-        <IoIosAddCircle size={20} /> ajouter un groupe
-      </button>
+      {hideButton ? (
+        <></>
+      ) : (
+        <button target="add-button" onClick={() => setDisplay(true)}>
+          <IoIosAddCircle size={20} /> ajouter un groupe
+        </button>
+      )}
 
       <ul target="list-groupe">
         {channels ? (
