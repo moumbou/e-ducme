@@ -11,8 +11,6 @@ handler.use(async (req, res) => {
   const user = req.user;
   const { meetingName, debut, fin, classe } = req.body;
 
-  console.log(req.body);
-
   const id = mongoose.Types.ObjectId();
   const meeting = await Meeting.create({
     nom: `${meetingName}-${id.toString()}`,

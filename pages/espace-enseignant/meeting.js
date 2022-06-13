@@ -154,8 +154,12 @@ function meeting() {
 
           {meeting ? (
             <>
-             <span data-target="details">debut : {new Date(meeting.dateDebut).toLocaleString()}</span>
-             <span data-target="details">fin : {new Date(meeting.dateFin).toLocaleString()}</span>
+              <span data-target="details">
+                debut : {new Date(meeting.dateDebut).toLocaleString()}
+              </span>
+              <span data-target="details">
+                fin : {new Date(meeting.dateFin).toLocaleString()}
+              </span>
             </>
           ) : (
             <>

@@ -2,6 +2,7 @@ import nextConnect from "next-connect";
 import dbConnect from "../../lib/dbConnect";
 import verifyToken from "../../middleware/verifyToken";
 import Meeting from "../../models/meeting";
+import pusher from "../../pusher/config";
 
 const handler = nextConnect();
 handler.use(verifyToken);
@@ -17,6 +18,8 @@ handler.use(async (req, res) => {
   }
 
   await Meeting.deleteOne({ _id: id });
+
+  pusher.trigger("meetings", "meeting", JSON.stringify({}));
   res.status(200).json({
     err: false,
     message: `votre meeting a était arrété avec succée !`,

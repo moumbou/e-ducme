@@ -2,11 +2,14 @@ import MainContainer from "../../components/MainContainer";
 import style from "../../css/Meeting.Style.module.css";
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import pusherJs from "pusher-js";
+import { pushMessage } from "../../slices/messageSlice";
 
 function meeting() {
   const [meetings, setMeetings] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -43,8 +46,40 @@ function meeting() {
     });
   }, []);
 
-  const goToUrl = (meetingName) => {
-    window.open(`https://meet.jit.si/${meetingName}`, "_blank").focus();
+  const goToUrl = (meetingName, debut, fin) => {
+    const date = new Date();
+    const now = new Date().setHours(
+      date.getHours(),
+      date.getMinutes(),
+      date.getSeconds(),
+      0
+    );
+    const isAllowed = now >= debut && now < fin ? true : false;
+
+    if (isAllowed) {
+      const token = localStorage.getItem("token");
+      axios.post(
+        "/api/add-presence",
+        {
+          meeting: meetingName,
+        },
+        {
+          headers: {
+            "x-access-token": token,
+          },
+        }
+      );
+      return window
+        .open(`https://meet.jit.si/${meetingName}`, "_blank")
+        .focus();
+    }
+
+    dispatch(
+      pushMessage({
+        err: true,
+        message: `le meeting n'a toujours pas commencé !`,
+      })
+    );
   };
 
   return (
@@ -57,7 +92,12 @@ function meeting() {
             <ul data-target="meeting-list">
               {meetings.map((value) => {
                 return (
-                  <li key={value._id} onClick={() => goToUrl(value.nom)}>
+                  <li
+                    key={value._id}
+                    onClick={() =>
+                      goToUrl(value.nom, value.dateDebut, value.dateFin)
+                    }
+                  >
                     <p>Enseignant: {value.prof.toUpperCase()}</p>
                     <p>Classe: {value.classe}</p>
                     <p>
