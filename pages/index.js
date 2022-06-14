@@ -3,30 +3,25 @@ import styles from "../css/HomePageStyle.module.css";
 const Index = () => {
   return (
     <div className={styles.hero}>
-      <img src="images/triangle-top.png" className={styles.triangle1} />
-      <img src="images/triangle-left.png" className={styles.triangle2} />
-      <img src="images/circle.png" className={styles.circle} />
-
       <Nav target={"home"} />
-      <dev className={styles.row}>
-        {" "}
-        {/* et la j'ai appeler un objet ou une classe */}
-        <div className="col-1">
-          <img src="images/man.png" />
-          <img src="images/elements.png" className={styles.elements} />
-        </div>
-        <div className={styles.col_2}>
+      <div data-target="content">
+        <div data-target="description">
           <h1>
-            Pour Chaque <span>étudiant</span> , chaque enseigant <br /> des
-            résultat réél
+            Découvrez une <br />
+            <span data-color="yellow">Nouvelle façon d'apprendre</span>
           </h1>
           <p>
-            Nous sommes une organisation à but non lucratif ayant pour mission
-            de fournir un enseignement gratuit et de qualité, pour tout le
-            monde, partout
+            EducMe accompagne les étudiants dans le suivi de leurs cours et aide
+            les enseignants a mieux communiquer avec leurs bon èlèves
           </p>
         </div>
-      </dev>
+
+        <div data-target="pictures">
+          <img data-target="front" src="/site-img/boy-storke.png" alt="boy" />
+          <img data-target="back" src="/site-img/Vector1.png" alt="" />
+          <img data-target="back" src="/site-img/Vector2.png" alt="" />
+        </div>
+      </div>
     </div>
   );
 };
