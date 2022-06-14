@@ -1,5 +1,8 @@
 import Nav from "../components/Nav";
 import styles from "../css/HomePageStyle.module.css";
+import { SiGooglemeet } from "react-icons/si";
+import { IoMdChatbubbles } from "react-icons/io";
+
 const Index = () => {
   return (
     <div className={styles.hero}>
@@ -17,9 +20,23 @@ const Index = () => {
         </div>
 
         <div data-target="pictures">
-          <img data-target="front" src="/site-img/boy-storke.png" alt="boy" />
+          <img data-target="front" src="/site-img/boy.png" alt="boy" />
           <img data-target="back" src="/site-img/Vector1.png" alt="" />
           <img data-target="back" src="/site-img/Vector2.png" alt="" />
+
+          <div data-target="float-card">
+            <SiGooglemeet />
+            <span>
+              Simplifiez <br /> vos meeting
+            </span>
+          </div>
+
+          <div data-target="float-card" data-position="bottom">
+            <IoMdChatbubbles />
+            <span>
+              Communication <br /> facile
+            </span>
+          </div>
         </div>
       </div>
     </div>
